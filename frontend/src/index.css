@@ -130,6 +130,11 @@ h3 {
   font-family: inherit;
 }
 
+select {
+  background-color: #000;
+  color: #e6e6e6;
+}
+
 .form-group label {
   text-align: left;
   display: block;
@@ -140,7 +145,7 @@ h3 {
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 5px;
-  background: #000;
+  background: #2b2a4d;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -183,6 +188,15 @@ h3 {
 
 .btn:hover {
   transform: scale(0.98);
+  background-color: #635da8;
+}
+
+.btn-present {
+  background-color: #006299;
+}
+
+.btn-present:hover {
+  background-color: #00a3f2;
 }
 
 .present-created {
@@ -238,7 +252,7 @@ h3 {
 }
 
 .status-new {
-  background-color: green;
+  background-color: #ffcd64;
   color: #fff;
   border-radius: 10px;
 }
@@ -250,7 +264,7 @@ h3 {
 }
 
 .status-closed {
-  background-color: darkred;
+  background-color: #ff7649;
   color: #fff;
   border-radius: 10px;
 }

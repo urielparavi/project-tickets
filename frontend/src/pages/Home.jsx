@@ -10,11 +10,11 @@ function Home() {
         <p>Please choose from an option below</p>
       </section>
 
-      <Link to='/new-present' className='btn btn-reverse btn-block'>
+      <Link to='/new-present' className='btn btn-reverse btn-block btn-present'>
         <FaQuestionCircle /> Create New Present
       </Link>
 
-      <Link to='/presents' className='btn btn-block'>
+      <Link to='/presents' className='btn btn-block btn--hover'>
         <FaTicketAlt /> View My Presents
       </Link>
     </>

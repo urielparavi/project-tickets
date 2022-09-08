@@ -32,7 +32,7 @@ function Presents() {
       <BackButton url='/' />
       <h1>Presents</h1>
       <div className="presnets">
-        <div className="presnet-headings">
+        <div className="present-headings">
           <div>Date</div>
           <div>Product</div>
           <div>Status</div>
