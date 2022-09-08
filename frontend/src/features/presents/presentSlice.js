@@ -112,7 +112,7 @@ export const presentSlice = createSlice({
       .addCase(getPresents.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.tickets = action.payload;
+        state.presents = action.payload;
       })
       .addCase(getPresents.rejected, (state, action) => {
         state.isLoading = false;
@@ -125,7 +125,7 @@ export const presentSlice = createSlice({
       .addCase(getPresent.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.ticket = action.payload;
+        state.present = action.payload;
       })
       .addCase(getPresent.rejected, (state, action) => {
         state.isLoading = false;
