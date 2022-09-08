@@ -42,12 +42,14 @@ function Present() {
     <div className='present-page'>
       <header className="present-header">
         <BackButton url='/presents' />
-        <h2>
-          Ticket ID: {present._id}
-          <span className={`status status-${present.status}`}>
-            {present.status}
-          </span>
-        </h2>
+        <div className="present-sm">
+          <h2>
+            Ticket ID: {present._id}
+            <span className={`status status-${present.status}`}>
+              {present.status}
+            </span>
+          </h2>
+        </div>
         <h3>Date Submitted: {new Date(present.createdAt).toLocaleString('en-US')}</h3>
         <h3>Product: {present.product}</h3>
         <hr />

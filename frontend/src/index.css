@@ -41,6 +41,7 @@ h3 {
   margin: 0 auto;
   padding: 0 20px;
   text-align: center;
+  padding-bottom: 0.2rem;
 }
 
 .header {
@@ -141,6 +142,10 @@ select {
   margin: 0 0 5px 3px;
 }
 
+.form-group button {
+  margin-bottom: 1rem;
+}
+
 .btn {
   padding: 10px 20px;
   border: 1px solid #000;
@@ -197,6 +202,10 @@ select {
 
 .btn-present:hover {
   background-color: #00a3f2;
+}
+
+.present {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .present-created {
@@ -410,9 +419,65 @@ footer {
     width: 90%;
   }
 
+  .present {
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    align-items: center;
+    grid-gap: 2rem;
+    padding: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .present-page {
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    align-items: center;
+    grid-gap: 2rem;
+    padding: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    border-radius: 12px;
+  }
+
+  .present-page button {
+    background-color: #ad3067;
+    position: absolute;
+    margin: 1rem;
+    max-width: 20rem;
+    bottom: 0;
+  }
+
+  .present-header {
+    margin-bottom: 3rem;
+  }
+
   .present-created h2,
   .heading h1 {
     font-size: 2rem;
+  }
+
+  .present-sm {
+    letter-spacing: -2px;
+    border-radius: 12px;
+  }
+
+  .present-sm h2 {
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    align-items: center;
+    grid-gap: 2rem;
+    padding: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .present-sm span {
+    display: block;
+    background-color: #00a3f2;
   }
 
   .heading p {
