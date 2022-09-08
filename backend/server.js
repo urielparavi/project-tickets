@@ -6,7 +6,7 @@ const connectDB = require('./config/db');
 const PORT = process.env.PORT || 5000;
 
 const userRoutes = require('./routes/userRoutes');
-const ticketRoutes = require('./routes/ticketRoutes');
+const presentRoutes = require('./routes/presentRoutes');
 
 // Connect to database
 connectDB();
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/api/users', userRoutes);
-app.use('/api/tickets', ticketRoutes);
+app.use('/api/presents', presentRoutes);
 
 app.use(errorHandler);
 

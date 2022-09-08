@@ -1,12 +1,12 @@
 const asyncHandler = require('express-async-handler');
 
 const User = require('../models/userModel');
-const Ticket = require('../models/ticketModel');
+const Present = require('../models/presentModel');
 
-// @desc    Get user tickets
-// @route   GET /api/tickets
+// @desc    Get user presents
+// @route   GET /api/presents
 // @access  Private
-const getTickets = asyncHandler(async (req, res) => {
+const getPresents = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
   const user = await User.findById(req.user.id);
 
@@ -15,15 +15,15 @@ const getTickets = asyncHandler(async (req, res) => {
     throw new Error('User not found!');
   }
 
-  const tickets = await Ticket.find({ user: req.user.id });
+  const presents = await Present.find({ user: req.user.id });
 
-  res.status(200).json(tickets);
+  res.status(200).json(presents);
 });
 
-// @desc    Get user ticket
-// @route   GET /api/tickets/:id
+// @desc    Get user present
+// @route   GET /api/presents/:id
 // @access  Private
-const getTicket = asyncHandler(async (req, res) => {
+const getPresent = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
   const user = await User.findById(req.user.id);
 
@@ -32,25 +32,25 @@ const getTicket = asyncHandler(async (req, res) => {
     throw new Error('User not found!');
   }
 
-  const ticket = await Ticket.findById(req.params.id);
+  const present = await Present.findById(req.params.id);
 
-  if (!ticket) {
+  if (!present) {
     res.status(404)
-    throw new Error('Ticket not found!');
+    throw new Error('Present not found!');
   }
 
-  if (ticket.user.toString() !== req.user.id) {
+  if (present.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('Not Authorized!');
   }
 
-  res.status(200).json(ticket);
+  res.status(200).json(present);
 });
 
-// @desc    Get new ticket
-// @route   POST /api/tickets
+// @desc    Get new present
+// @route   POST /api/presents
 // @access  Private
-const createTicket = asyncHandler(async (req, res) => {
+const createPresent = asyncHandler(async (req, res) => {
   const { product, description } = req.body;
 
   if (!product || !description) {
@@ -66,20 +66,20 @@ const createTicket = asyncHandler(async (req, res) => {
     throw new Error('User not found!');
   }
 
-  const ticket = await Ticket.create({
+  const present = await Present.create({
     product,
     description,
     user: req.user.id,
     status: 'new'
   });
 
-  res.status(201).json(ticket);
+  res.status(201).json(present);
 });
 
-// @desc    Delete ticket
-// @route   DELETE /api/tickets/:id
+// @desc    Delete present
+// @route   DELETE /api/presents/:id
 // @access  Private
-const deleteTicket = asyncHandler(async (req, res) => {
+const deletePresent = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
   const user = await User.findById(req.user.id);
 
@@ -88,27 +88,27 @@ const deleteTicket = asyncHandler(async (req, res) => {
     throw new Error('User not found!');
   }
 
-  const ticket = await Ticket.findById(req.params.id);
+  const present = await Present.findById(req.params.id);
 
-  if (!ticket) {
+  if (!present) {
     res.status(404)
-    throw new Error('Ticket not found!');
+    throw new Error('Present not found!');
   }
 
-  if (ticket.user.toString() !== req.user.id) {
+  if (present.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('Not Authorized!');
   }
 
-  await ticket.remove();
+  await present.remove();
 
   res.status(200).json({ success: true });
 });
 
-// @desc    Update ticket
-// @route   PUT /api/tickets/:id
+// @desc    Update present
+// @route   PUT /api/presents/:id
 // @access  Private
-const updateTicket = asyncHandler(async (req, res) => {
+const updatePresent = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
   const user = await User.findById(req.user.id);
 
@@ -117,28 +117,28 @@ const updateTicket = asyncHandler(async (req, res) => {
     throw new Error('User not found!');
   }
 
-  const ticket = await Ticket.findById(req.params.id);
+  const present = await Present.findById(req.params.id);
 
-  if (!ticket) {
+  if (!present) {
     res.status(404)
-    throw new Error('Ticket not found!');
+    throw new Error('Present not found!');
   }
 
-  if (ticket.user.toString() !== req.user.id) {
+  if (present.user.toString() !== req.user.id) {
     res.status(401)
     throw new Error('Not Authorized!');
   }
   // new => If new doesn't exist so creatd at
-  const updatedTicket = await Ticket.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  const updatedPresent = await Present.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
-  res.status(200).json(updatedTicket);
+  res.status(200).json(updatedPresent);
 });
 
 module.exports = {
-  getTickets,
-  getTicket,
-  createTicket,
-  deleteTicket,
-  updateTicket
+  getPresents,
+  getPresent,
+  createPresent,
+  deletePresent,
+  updatePresent
 };
 

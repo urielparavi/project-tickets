@@ -10,12 +10,12 @@ function Home() {
         <p>Please choose from an option below</p>
       </section>
 
-      <Link to='/new-ticket' className='btn btn-reverse btn-block'>
-        <FaQuestionCircle /> Create New Ticket
+      <Link to='/new-present' className='btn btn-reverse btn-block'>
+        <FaQuestionCircle /> Create New Present
       </Link>
 
-      <Link to='/tickets' className='btn btn-block'>
-        <FaTicketAlt /> View My Tickets
+      <Link to='/presents' className='btn btn-block'>
+        <FaTicketAlt /> View My Presents
       </Link>
     </>
   )

@@ -5,10 +5,10 @@ import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import NewTicket from './pages/NewTicket';
+import NewPresent from './pages/NewPresent';
 import Register from './pages/Register';
-import Ticket from './pages/Ticket';
-import Tickets from './pages/Tickets';
+import Present from './pages/Present';
+import Presents from './pages/Presents';
 
 function App() {
   return (
@@ -20,14 +20,14 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            <Route path='/new-ticket' element={<PrivateRoute />} >
-              <Route path='/new-ticket' element={<NewTicket />} />
+            <Route path='/new-present' element={<PrivateRoute />} >
+              <Route path='/new-present' element={<NewPresent />} />
             </Route>
-            <Route path='/tickets' element={<PrivateRoute />} >
-              <Route path='/tickets' element={<Tickets />} />
+            <Route path='/presents' element={<PrivateRoute />} >
+              <Route path='/presents' element={<Presents />} />
             </Route>
-            <Route path='/ticket/:ticketId' element={<PrivateRoute />} >
-              <Route path='/ticket/:ticketId' element={<Ticket />} />
+            <Route path='/present/:presentId' element={<PrivateRoute />} >
+              <Route path='/present/:presentId' element={<Present />} />
             </Route>
           </Routes>
         </div>

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { createTicket, reset } from '../features/tickets/ticketSlice';
+import { createPresent, reset } from '../features/presents/presentSlice';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
 
-function NewTicket() {
+function NewPresent() {
   const { user } = useSelector((state) => state.auth);
-  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.tickets);
+  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.presents);
 
   const [name] = useState(user.name);
   const [email] = useState(user.email);
@@ -25,7 +25,7 @@ function NewTicket() {
 
     if (isSuccess) {
       dispatch(reset());
-      navigate('/tickets');
+      navigate('/presents');
     }
 
     dispatch(reset());
@@ -33,7 +33,7 @@ function NewTicket() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createTicket({ product, description }));
+    dispatch(createPresent({ product, description }));
   };
 
   if (isLoading) {
@@ -44,7 +44,7 @@ function NewTicket() {
     <>
       <BackButton url='/' />
       <section className="heading">
-        <h1>Create New Ticket</h1>
+        <h1>Create New Present</h1>
         <p>Please fill out the form below..</p>
       </section>
 
@@ -70,6 +70,8 @@ function NewTicket() {
               <option value="Mobile">Mobile</option>
               <option value="Tablet">Tablet</option>
               <option value="Computer">Computer</option>
+              <option value="Usb">Usb</option>
+              <option value="Table">Table</option>
             </select>
           </div>
           <div className="form-group">
@@ -94,4 +96,4 @@ function NewTicket() {
   )
 }
 
-export default NewTicket
+export default NewPresent

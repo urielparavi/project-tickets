@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTickets, reset } from '../features/tickets/ticketSlice';
+import { getPresents, reset } from '../features/presents/presentSlice';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
-import TicketItem from '../components/TicketItem';
+import PresentItem from '../components/PresentItem';
 
-function Tickets() {
-  const { tickets, isLoading, isSuccess } = useSelector((state) => state.tickets);
+function Presents() {
+  const { presents, isLoading, isSuccess } = useSelector((state) => state.presents);
 
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ function Tickets() {
   }, [dispatch, isSuccess]);
 
   useEffect(() => {
-    dispatch(getTickets());
+    dispatch(getPresents());
   }, [dispatch]);
 
   if (isLoading) {
@@ -30,20 +30,20 @@ function Tickets() {
   return (
     <>
       <BackButton url='/' />
-      <h1>Tickets</h1>
-      <div className="tickets">
-        <div className="ticket-headings">
+      <h1>Presents</h1>
+      <div className="presnets">
+        <div className="presnet-headings">
           <div>Date</div>
           <div>Product</div>
           <div>Status</div>
           <div></div>
         </div>
-        {tickets.map((ticket) => (
-          <TicketItem key={ticket._id} ticket={ticket} />
+        {presents.map((present) => (
+          <PresentItem key={present._id} present={present} />
         ))}
       </div>
     </>
   )
 }
 
-export default Tickets
+export default Presents;
