@@ -1,13 +1,17 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { getPresent, reset, closePresent } from '../features/presents/presentSlice';
+import { getPresent, closePresent } from '../features/presents/presentSlice';
+import { getNotes, reset as notesReset } from '../features/notes/noteSlice';
 import { useParams, useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
-import { useEffect } from 'react';
+import NoteItem from '../components/NoteItem';
 
 function Present() {
   const { present, isLoading, isSuccess, isError, message } = useSelector((state) => state.presents);
+
+  const { notes, isLoading: notesIsLoading } = useSelector((state) => state.notes);
 
   const params = useParams();
   const navigate = useNavigate();
@@ -20,6 +24,7 @@ function Present() {
     }
 
     dispatch(getPresent(presentId));
+    dispatch(getNotes(presentId));
     // eslint-disable-next-line
   }, [isError, message, presentId]);
 
@@ -30,7 +35,7 @@ function Present() {
     navigate('/presents');
   };
 
-  if (isLoading) {
+  if (isLoading || notesIsLoading) {
     return <Spinner />;
   }
 
@@ -57,7 +62,13 @@ function Present() {
           <h3>Description of Issue</h3>
           <p>{present.description}</p>
         </div>
+        <h2>Notes</h2>
       </header>
+
+      {notes.map((note) => (
+        <NoteItem key={note._id} note={note} />
+      ))}
+
       {present.status !== 'closed' && (
         <button onClick={onPresentClose} className='btn btn-block btn-purple'>Close Present</button>
       )}
