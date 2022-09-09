@@ -185,8 +185,8 @@ select {
   font-size: 13px;
 }
 
-.btn-danger {
-  background: darkred;
+.btn-purple {
+  background-color: #ad3067;
   border: none;
 }
 

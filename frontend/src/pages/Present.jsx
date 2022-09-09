@@ -59,7 +59,7 @@ function Present() {
         </div>
       </header>
       {present.status !== 'closed' && (
-        <button onClick={onPresentClose} className='btn btn-block btn-danger'>Close Present</button>
+        <button onClick={onPresentClose} className='btn btn-block btn-purple'>Close Present</button>
       )}
     </div>
   )
