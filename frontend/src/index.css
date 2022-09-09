@@ -495,7 +495,6 @@ footer {
     min-width: 20rem;
     margin: 1rem;
     box-sizing: border-box;
-    /* position: relative; */
   }
 
   .note h4 {
@@ -513,6 +512,6 @@ footer {
   .note-date h3 {
     background-color: #ffe817;
     padding: 0.3rem;
-    border-radius: 2px;
+    border-radius: 3px;
   }
 }
