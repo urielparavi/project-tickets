@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import Modal from 'react-modal';
 import { FaPlus } from 'react-icons/fa';
 import { getPresent, closePresent } from '../features/presents/presentSlice';
-import { getNotes, reset as notesReset } from '../features/notes/noteSlice';
+import { getNotes, createNote, reset as notesReset } from '../features/notes/noteSlice';
 import { useParams, useNavigate } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
@@ -60,7 +60,7 @@ function Present() {
   // Create note submit
   const onNoteSubmit = (e) => {
     e.preventDefault();
-    console.log('Submit')
+    dispatch(createNote({ noteText, presentId }));
     closeModal();
   };
 
