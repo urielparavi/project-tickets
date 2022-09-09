@@ -514,4 +514,11 @@ footer {
     padding: 0.3rem;
     border-radius: 3px;
   }
+
+  .btn--sm {
+    /* margin-top: 5rem; */
+    position: absolute;
+    bottom: unset;
+
+  }
 }
