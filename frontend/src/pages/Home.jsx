@@ -7,7 +7,7 @@ function Home() {
     <>
       <section className="heading">
         <h1>What do you need help with?</h1>
-        <p>Please choose from an option below</p>
+        <p>Please choose from an option below..</p>
       </section>
 
       <Link to='/new-present' className='btn btn-reverse btn-block btn-present'>

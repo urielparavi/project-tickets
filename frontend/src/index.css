@@ -76,6 +76,10 @@ h3 {
   margin-right: 5px;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .heading {
   font-size: 2rem;
   font-weight: 700;
