@@ -4,7 +4,7 @@ function NoteItem({ note }) {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <div className='note' style={{
+    <div className='note note-responsive' style={{
       background: note.isStaff ? 'rgba(0,0,0,0.7)' : '#fff',
       color: note.isStaff ? '#fff' : '#000'
     }}>

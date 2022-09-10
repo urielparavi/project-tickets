@@ -446,11 +446,18 @@ footer {
   }
 
   .present-page button {
-    background-color: #ad3067;
+    background-color: #FF4136;
     position: absolute;
-    margin: 1rem;
-    max-width: 20rem;
     bottom: 0;
+    right: 1rem;
+    top: 38rem;
+    height: 2rem;
+    margin-top: 4rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 1rem;
   }
 
   .present-header {
@@ -494,7 +501,6 @@ footer {
     margin-top: 3rem;
     min-width: 20rem;
     margin: 1rem;
-    box-sizing: border-box;
   }
 
   .note h4 {
@@ -515,10 +521,34 @@ footer {
     border-radius: 3px;
   }
 
-  .btn--sm {
-    /* margin-top: 5rem; */
-    position: absolute;
-    bottom: unset;
+  .note-responsive {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 2fr 4fr 2fr;
+    align-items: start;
+    justify-content: start;
+    grid-gap: 2rem;
+    display: block;
+    padding: 2rem;
+    max-width: 20rem;
+    box-sizing: border-box;
+  }
 
+  .note-responsive p {
+    max-width: 20rem;
+    height: 2rem;
+    line-height: 1.8;
+    word-break: break-all;
+  }
+
+  .present-desc {
+    margin-bottom: 3rem;
+  }
+
+  button.btn-purple {
+    background-color: #ad3067;
+    position: absolute;
+    top: 43rem;
+    left: 0.1rem;
   }
 }
